@@ -4,23 +4,23 @@ from slack_sdk.errors import SlackApiError
 
 def send_email_notification(to_email, subject, body):
     try:
-        # Ensure you have configured yagmail, e.g., by setting environment variables
-        # YAGMAIL_USER and YAGMAIL_PASSWORD, or by passing credentials directly.
-        # For Gmail, you might need to generate an app password.
+        # Đảm bảo bạn đã cấu hình yagmail, ví dụ: bằng cách đặt biến môi trường
+        # YAGMAIL_USER và YAGMAIL_PASSWORD, hoặc bằng cách truyền trực tiếp thông tin xác thực.
+        # Đối với Gmail, bạn có thể cần tạo mật khẩu ứng dụng.
         yag = yagmail.SMTP(os.environ.get("YAGMAIL_USER"), os.environ.get("YAGMAIL_PASSWORD"))
         yag.send(to=to_email, subject=subject, contents=body)
-        print(f"Email notification sent to {to_email} with subject: {subject}")
+        print(f"Thông báo email đã được gửi đến {to_email} với chủ đề: {subject}")
     except Exception as e:
-        print(f"Error sending email notification to {to_email}: {e}")
+        print(f"Lỗi khi gửi thông báo email đến {to_email}: {e}")
 
 def send_slack_notification(webhook_url, message):
     try:
-        # The WebClient can also be initialized with a token for more complex interactions,
-        # but for webhooks, directly using requests might be simpler or a custom WebClient init.
-        # For basic webhook, a direct POST request is often sufficient.
+        # WebClient cũng có thể được khởi tạo bằng một token cho các tương tác phức tạp hơn,
+        # nhưng đối với webhook, việc sử dụng trực tiếp requests có thể đơn giản hơn hoặc khởi tạo WebClient tùy chỉnh.
+        # Đối với webhook cơ bản, yêu cầu POST trực tiếp thường là đủ.
         import requests
         response = requests.post(webhook_url, json={'text': message})
         response.raise_for_status()
-        print(f"Slack notification sent: {message}")
+        print(f"Thông báo Slack đã được gửi: {message}")
     except requests.exceptions.RequestException as e:
-        print(f"Error sending Slack notification: {e}")
+        print(f"Lỗi khi gửi thông báo Slack: {e}")

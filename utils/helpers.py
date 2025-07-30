@@ -1,2 +1,2 @@
 # utils/helpers.py
-# This file can be used for any general utility functions.
+# Tệp này có thể được sử dụng cho bất kỳ hàm tiện ích chung nào.
