@@ -1,0 +1,34 @@
+# Google APIs
+gspread==5.12.0
+google-api-python-client==2.123.0
+google-auth==2.29.0
+google-auth-oauthlib==1.2.0
+
+# AI Model APIs
+openai==1.33.0
+anthropic==0.25.7  # nếu sử dụng Claude (tuỳ chọn)
+
+# Data handling
+pandas==2.2.2
+numpy==1.26.4
+
+# Plotting / Charts
+matplotlib==3.9.0
+
+# Database
+sqlalchemy==2.0.30
+psycopg2-binary==2.9.9  # nếu dùng PostgreSQL
+sqlite-utils==3.36  # hoặc dùng SQLite local
+
+# Notifications
+slack_sdk==3.27.0
+yagmail==0.15.293  # đơn giản để gửi Gmail
+
+# Scheduler / Cron
+schedule==1.2.1
+APScheduler==3.10.4
+
+# Others
+requests==2.32.3
+python-dotenv==1.0.1  # dùng để load biến môi trường
+Pillow==10.3.0        # xử lý ảnh khi cần
